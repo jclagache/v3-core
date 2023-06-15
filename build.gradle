@@ -1,0 +1,60 @@
+import org.web3j.solidity.gradle.plugin.EVMVersion
+
+plugins {
+    id 'java'
+    alias(libs.plugins.web3j)
+    id 'maven-publish'
+}
+
+group = 'me.jclagache.amm.uniswap.v3.core'
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId = 'me.jclagache.amm.uniswap.v3'
+
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = "https://maven.pkg.github.com/jclagache/v3-core"
+            credentials {
+                username = System.getenv("GITHUB_ACTOR")
+                password = System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+web3j {
+    generatedPackageName = "${group}.contracts"
+}
+
+solidity {
+    version = "0.7.6"
+    evmVersion = EVMVersion.ISTANBUL
+    pathRemappings = ["@uniswap":"${project.projectDir}/node_modules/@uniswap"]
+}
+
+node {
+    nodeProjectDir = file("${project.projectDir}")
+}
+
+sourceSets {
+    main {
+        solidity {
+            srcDirs = ["${project.projectDir}/node_modules/@uniswap/v3-core/contracts/"]
+        }
+    }
+}

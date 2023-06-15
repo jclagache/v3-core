@@ -1,0 +1,18 @@
+rootProject.name = 'v3-core'
+
+ext {
+    web3jVersion = '4.10.0'
+}
+
+dependencyResolutionManagement {
+    repositories {
+        mavenCentral()
+    }
+    versionCatalogs {
+        libs {
+            version('web3j', "$web3jVersion")
+            plugin('web3j', 'org.web3j').versionRef('web3j')
+        }
+    }
+}
+

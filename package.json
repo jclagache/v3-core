@@ -1,0 +1,11 @@
+{
+  "name": "v3-core",
+  "description": "🎚 Core smart contracts for interacting with Uniswap V3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Uniswap/v3-core"
+  },
+  "dependencies": {
+    "@uniswap/v3-core": "^1.0.1"
+  }
+}
