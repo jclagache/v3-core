@@ -6,6 +6,6 @@
     "url": "https://github.com/Uniswap/v3-core"
   },
   "dependencies": {
-    "@uniswap/v3-core": "^1.0.1"
+    "@uniswap/v3-core": "https://github.com/Uniswap/v3-core/tarball/master"
   }
 }
