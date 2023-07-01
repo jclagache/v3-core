@@ -1,7 +1,7 @@
 import org.web3j.solidity.gradle.plugin.EVMVersion
 
 plugins {
-    id 'java'
+    id 'java-library'
     alias(libs.plugins.web3j)
     id 'maven-publish'
 }
@@ -52,4 +52,8 @@ sourceSets {
             srcDirs = ["${project.projectDir}/node_modules/@uniswap/v3-core/contracts/"]
         }
     }
+}
+
+dependencies {
+    api libs.web3j.core
 }

@@ -12,6 +12,7 @@ dependencyResolutionManagement {
         libs {
             version('web3j', "$web3jVersion")
             plugin('web3j', 'org.web3j').versionRef('web3j')
+            library('web3j-core', 'org.web3j', 'core').versionRef('web3j')
         }
     }
 }
